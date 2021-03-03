@@ -13,7 +13,7 @@
       </div>
       <div>
         <BButton outlined @click="deleteItem">Delete</BButton>
-    </div>
+      </div>
   </div>
   </div>
 </template>
@@ -63,7 +63,7 @@ export default class ToDoCard extends Vue {
     .mutate({
       mutation: gql`
         mutation($input: DeleteToDoItemInput!) {
-          deleteToDoItem(input: $input) {
+          deleteToDoItemPayload(input: $input) {
             toDoItem {
                   content
                   createdDate
@@ -79,11 +79,11 @@ export default class ToDoCard extends Vue {
           id: this.item.id
         }
       }
-  })
+  }).then(() => this.$emit("deletedItem", this.item));
+
   }
 
-  toggleDone() {
-    console.log(this.item)
+  toggleDone(){
     this.$apollo
       .mutate({
         mutation: gql`

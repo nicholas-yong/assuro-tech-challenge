@@ -2,7 +2,9 @@
   <div class="items-list">
     <div v-if="items.length">
       <div v-for="item in items" :key="item.id">
-        <ToDoCard :item="item" :onStatusToggle="loadItems" />
+        <ToDoCard :item="item" 
+                  :onStatusToggle="loadItems"
+                  @deletedItem = "deletedItem" />
       </div>
     </div>
     <p v-else-if="!isLoading">No items found!</p>
@@ -29,6 +31,16 @@ export default class ToDoItemsList extends Vue {
   mounted() {
     this.loadItems();
   }
+
+  deletedItem(e: ToDoCard)
+  {
+    this.$emit('list_deletedItem', e);
+  }
+
+  //reload()
+  //{
+   // this.$forceUpdate();
+  //}
 
   loadItems() {
     this.isLoading = true;

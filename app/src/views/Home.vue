@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <ToDoItemsList :filters="{ status: { in: ['PENDING', 'DOING'] } }" />
+    <ToDoItemsList 
+      :filters="{ status: { in: ['PENDING', 'DOING'] } }" 
+      @list_deletedItem = "handleDeletedItem" />
     <FloatingButton text="+ Add" :on-click="addNew" />
   </div>
 </template>
@@ -9,6 +11,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import ToDoItemsList from "@/components/ToDoItemsList.vue";
 import FloatingButton from "@/components/FloatingButton.vue";
+import ToDoCard from '@/components/ToDoCard.vue';
 
 @Component({
   components: {
@@ -19,6 +22,15 @@ import FloatingButton from "@/components/FloatingButton.vue";
 export default class Home extends Vue {
   addNew() {
     this.$router.push({ name: "new" });
+  }
+
+  handleDeletedItem(e:ToDoCard)
+  {
+    //Just in case, let's test if e is undefined first.
+    if( e !== undefined)
+    {
+      this.$router.go(0);
+    }
   }
 }
 </script>
