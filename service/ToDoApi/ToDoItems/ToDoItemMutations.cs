@@ -22,7 +22,8 @@ namespace ToDoApi.ToDoItems
             {
                 Content = input.Content,
                 CreatedDate = DateTimeOffset.UtcNow,
-                Status = input.Status.HasValue ? input.Status.Value : ToDoItemStatus.PENDING
+                Status = input.Status.HasValue ? input.Status.Value : ToDoItemStatus.PENDING,
+                Priority = input.Priority
             };
 
             context.ToDoItems.Add(item);
@@ -42,6 +43,7 @@ namespace ToDoApi.ToDoItems
 
             item.Content = input.Content.HasValue ? input.Content.Value : item.Content;
             item.Status = input.Status.HasValue ? (input.Status.Value ?? item.Status) : item.Status;
+            item.Priority = input.Priority;
 
             await context.SaveChangesAsync(cancellationToken);
 

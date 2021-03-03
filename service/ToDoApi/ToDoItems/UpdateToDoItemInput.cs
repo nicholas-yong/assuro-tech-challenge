@@ -7,6 +7,7 @@ namespace ToDoApi.ToDoItems
     public record UpdateToDoItemInput(
         Guid Id,
         Optional<string> Content,
-        Optional<ToDoItemStatus?> Status
+        Optional<ToDoItemStatus?> Status,
+        Optional<ToDoItemPriority> Priority
     );
 }

@@ -25,11 +25,6 @@ const routes: Array<RouteConfig> = [
     name: 'edit',
     component: () => import('@/views/Edit.vue'),
     props: true
-  },
-  {
-    path: '/delete',
-    name: 'delete',
-    component: Home
   }
 
 ];

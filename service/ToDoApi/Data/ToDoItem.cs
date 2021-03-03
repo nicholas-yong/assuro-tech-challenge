@@ -11,6 +11,13 @@ namespace ToDoApi.Data
         DONE
     }
 
+    public enum ToDoItemPriority
+    {
+        LOW,
+        NORMAL,
+        HIGH
+    }
+
     public class ToDoItem
     {
 
@@ -23,5 +30,7 @@ namespace ToDoApi.Data
         public ToDoItemStatus Status { get; set; }
 
         public DateTimeOffset CreatedDate { get; set; }
+
+        public ToDoItemPriority Priority { get; set; }
     }
 }

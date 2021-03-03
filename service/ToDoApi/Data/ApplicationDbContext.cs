@@ -29,43 +29,50 @@ namespace ToDoApi.Data
                         Content = "Finish up work on latest feature",
                         CreatedDate = DateTimeOffset.Parse("2021-02-16T22:39:55.593Z"),
                         Id = Guid.Parse("35bbef832b664d94b1b6075b5172868f"),
-                        Status = ToDoItemStatus.PENDING
+                        Status = ToDoItemStatus.PENDING,
+                        Priority = ToDoItemPriority.HIGH
                     },
                     new ToDoItem {
                         Content = "Make a bitmoji",
                         CreatedDate = DateTimeOffset.Parse("2021-02-16T22:39:53.593Z"),
                         Id = Guid.Parse("38560f1d83aa4824a39df81b2ac4ae81"),
-                        Status = ToDoItemStatus.PENDING
+                        Status = ToDoItemStatus.PENDING,
+                        Priority = ToDoItemPriority.HIGH
                     },
                     new ToDoItem {
                         Content = "Buy bread",
                         CreatedDate = DateTimeOffset.Parse("2021-02-16T22:39:51.593Z"),
                         Id = Guid.Parse("e404faa17a0641d287b87ddfb9e7300c"),
-                        Status = ToDoItemStatus.PENDING
+                        Status = ToDoItemStatus.PENDING,
+                        Priority = ToDoItemPriority.HIGH
                     },
                     new ToDoItem {
                         Content = "Follow up with Sam RE Friday night",
                         CreatedDate = DateTimeOffset.Parse("2021-02-16T22:39:49.593Z"),
                         Id = Guid.Parse("cf18518288c14413969d733cea151b1a"),
-                        Status = ToDoItemStatus.PENDING
+                        Status = ToDoItemStatus.PENDING,
+                        Priority = ToDoItemPriority.NORMAL
                     },
                     new ToDoItem {
                         Content = "Cat flea treatment",
                         CreatedDate = DateTimeOffset.Parse("2021-02-16T22:39:45.326Z"),
                         Id = Guid.Parse("eb60226cf9a044fc887cec98ce39f433"),
-                        Status = ToDoItemStatus.PENDING
+                        Status = ToDoItemStatus.PENDING,
+                        Priority = ToDoItemPriority.NORMAL
                     },
                     new ToDoItem {
                         Content = "Daily walk",
                         CreatedDate = DateTimeOffset.Parse("2021-02-16T22:39:42.087Z"),
                         Id = Guid.Parse("cc552a5da3e44e5ebcb03ec3d249a3f9"),
-                        Status = ToDoItemStatus.PENDING
+                        Status = ToDoItemStatus.PENDING,
+                        Priority = ToDoItemPriority.NORMAL
                     },
                     new ToDoItem {
                         Content = "Take out the rubbish",
                         CreatedDate = DateTimeOffset.Parse("2021-02-16T22:39:34.598Z"),
                         Id = Guid.Parse("ad35676c81a048c38af64d8dd41671f0"),
-                        Status = ToDoItemStatus.DONE
+                        Status = ToDoItemStatus.DONE,
+                        Priority = ToDoItemPriority.LOW
                     }
                 );
             });
