@@ -1,0 +1,23 @@
+{
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true,
+  "[json]": {
+    "editor.formatOnSave": false
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.format.enable": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.packageManager": "yarn",
+  "eslint.run": "onSave",
+  "prettier.disableLanguages": [
+    "javascript",
+    "typescript"
+  ],
+  "files.associations": {
+    "*Schema.snap": "graphql",
+    "*.snap": "json",
+  },
+}
