@@ -15,6 +15,10 @@
           >
             <BInput v-model="content" placeholder="To Do" :expanded="true" />
           </BField>
+          <to-do-priority-selector 
+            v-bind:defaultPriority="priority"
+            v-on:buttonSelected = "buttonSelected"
+          ></to-do-priority-selector>
         </ValidationProvider>
         <section>
             <div class="buttons are-medium">
@@ -36,11 +40,13 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { ValidationProvider, ValidationObserver } from "vee-validate";
 import gql from "graphql-tag";
+import ToDoPrioritySelector from '@/components/ToDoPrioritySelector.vue';
 
 @Component({
   components: {
     ValidationProvider,
-    ValidationObserver
+    ValidationObserver,
+    ToDoPrioritySelector
   }
 })
 export default class Edit extends Vue {
@@ -49,13 +55,24 @@ export default class Edit extends Vue {
   // @Prop({ required: true }) originalContent: any;
   isLoading = false;
   content = "";
+  priority = "";
 
   mounted()
   {
     this.content = this.item.content;
+    this.priority = this.item.priority;
   }
 
+  buttonSelected(e:string)
+  {
+    this.priority = e;
+  }
+
+  
+
   createItem() {
+    console.log(this.priority)
+    debugger
     this.isLoading = true;
     this.$apollo
       .mutate({
@@ -67,6 +84,7 @@ export default class Edit extends Vue {
                 createdDate
                 id
                 status
+                priority
               }
             }
           }
@@ -74,7 +92,8 @@ export default class Edit extends Vue {
         variables: {
           input: {
             id: this.item.id,
-            content: this.content
+            content: this.content,
+            priority: this.priority
           }
         }
       })

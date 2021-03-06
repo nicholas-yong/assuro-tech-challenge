@@ -52,7 +52,7 @@ export default class ToDoCard extends Vue {
     this.$router.push({
       name: 'edit',
       params: {
-        item: this.item,
+        item: this.item
       }
     })
   }

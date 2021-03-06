@@ -13,7 +13,7 @@
             :message="errors"
             :expanded="true"
           >
-            <BInput v-model="name" placeholder="To Do" :expanded="true" />
+            <BInput v-model="content" placeholder="To Do" :expanded="true" />
           </BField>
         </ValidationProvider>
         <section>
@@ -26,7 +26,7 @@
               </BButton>
             </div>
         </section>
-        <ToDoPrioritySelector></ToDoPrioritySelector>
+        <ToDoPrioritySelector defaultPriority = "NORMAL" v-on:buttonSelected = "buttonSelected" ></ToDoPrioritySelector>
       </form>
     </ValidationObserver>
     <BLoading :is-full-page="false" :active.sync="isLoading" />
@@ -48,12 +48,12 @@ import ToDoPrioritySelector from '@/components/ToDoPrioritySelector.vue';
 })
 export default class AddNew extends Vue {
   isLoading = false;
-  name = "";
-  priority = 0;
+  content = "";
+  priority = "NORMAL";
 
-  priorityItemSelected(e)
+  buttonSelected(e:string)
   {
-    console.log(e);
+    this.priority = e;
   }
 
   createItem() {
@@ -75,9 +75,9 @@ export default class AddNew extends Vue {
         `,
         variables: {
           input: {
-            name: this.name,
+            content: this.content,
             priority: this.priority
-          }
+          },
         }
       })
       .then(() => this.$router.push({ name: "default" }))

@@ -1,23 +1,23 @@
 <template>
   <div class = "radio-buttons-container">
-      <b-radio v-model= "selected"
+      <b-radio v-model= "localDefaultPriority"
                name = "name"
-               native-value = "Low"
-               :value = "'Low'"
+               native-value = "LOW"
+               :value = "'LOW'"
                @input="returnSelection">
        Low
       </b-radio>
-        <b-radio v-model= "selected"
+        <b-radio v-model= "localDefaultPriority"
                  name = "name"
-                 native-value = "Medium"
-                 :value = "'Medium'"
+                 native-value = "NORMAL"
+                 :value = "'NORMAL'"
                  @input="returnSelection">
-       Medium
+       Normal
       </b-radio>
-      <b-radio v-model= "selected"
+      <b-radio v-model= "localDefaultPriority"
                name = "name"
-               native-value = "High"
-               :value = "'High'"
+               native-value = "HIGH"
+               :value = "'HIGH'"
                @input="returnSelection">
        High
       </b-radio>
@@ -28,20 +28,41 @@
 
 export default
 {
-    name: 'ToDoPrioritySelector',
-    data()
+    data() 
     {
-        return{
-            selected: "Low"
-        };
+        return{}
+    },
+    model:
+    {
+        prop: 'defaultPriority',
+        event: 'buttonSelected'
+    },
+    props:
+    {
+        defaultPriority: String
     },
     methods:
-     {
-        returnSelection(event)
+    {
+        returnSelection(e:Event)
         {
-            this.$emit("priorityItemSelected", event)
+            this.$emit("buttonSelected", e)
         }
-     }
+    },
+    computed:
+    {
+        localDefaultPriority:
+        {
+            get () 
+            {
+                return this.defaultPriority
+            },
+            
+            set()
+            {
+                //We don't need to do anything here.
+            }
+        }
+    }
 }
 
 </script>
@@ -52,7 +73,7 @@ $medium: 900px;
 
 .radio-buttons-container
 {
-    margin-top: 1rem;
+    margin: 1rem;
     display: flex;
 }
 

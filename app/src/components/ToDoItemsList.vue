@@ -34,6 +34,7 @@ export default class ToDoItemsList extends Vue {
 
   deletedItem(e: ToDoCard)
   {
+    debugger
     this.$emit('handleDeletedItem', e);
   }
 
@@ -50,7 +51,7 @@ export default class ToDoItemsList extends Vue {
         query: gql`
           query($filters: ToDoItemFilterInput) {
             toDoItems(
-              order: [{ createdDate: DESC }]
+              order: [{ priority: ASC }]
               where: $filters
             ) {
               nodes {
@@ -58,6 +59,7 @@ export default class ToDoItemsList extends Vue {
                 createdDate
                 id
                 status
+                priority
               }
             }
           }
