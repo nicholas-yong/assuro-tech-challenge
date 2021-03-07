@@ -1,10 +1,10 @@
 ```markdown
-# Implementation of Projects
+# Implementation of Projects Functionality
 
 ## Assumptions
 
 1. Users will be able to create new projects using the new ProjectsList.vue view.
-2. When viewing an individual project, clicking on +Add will add a ToDoItem to that project.
+2. When viewing an individual project inside the new Projects.vue view, clicking on +Add will add a ToDoItem to that project.
 3. A ToDoItem can only be associated with one project at once.
 
 ## Implementation

@@ -71,8 +71,6 @@ export default class Edit extends Vue {
   
 
   createItem() {
-    console.log(this.priority)
-    debugger
     this.isLoading = true;
     this.$apollo
       .mutate({

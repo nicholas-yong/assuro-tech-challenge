@@ -101,6 +101,7 @@ export default class ToDoCard extends Vue {
                   createdDate
                   id
                   status
+                  priority
             }
           }
         }
@@ -126,6 +127,7 @@ export default class ToDoCard extends Vue {
                 createdDate
                 id
                 status
+                priority
               }
             }
           }
