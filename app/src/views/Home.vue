@@ -2,7 +2,7 @@
   <div class="home">
     <ToDoItemsList 
       :filters="{ status: { in: ['PENDING', 'DOING'] } }" 
-      @list_deletedItem = "handleDeletedItem" />
+      @handleDeletedItem = "handleDeletedItem" />
     <FloatingButton text="+ Add" :on-click="addNew" />
   </div>
 </template>
@@ -26,7 +26,6 @@ export default class Home extends Vue {
 
   handleDeletedItem(e:ToDoCard)
   {
-    console.log(e);
     //Just in case, let's test if e is undefined first.
     if( e !== undefined)
     {

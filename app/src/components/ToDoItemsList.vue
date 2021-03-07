@@ -34,7 +34,6 @@ export default class ToDoItemsList extends Vue {
 
   deletedItem(e: ToDoCard)
   {
-    debugger
     this.$emit('handleDeletedItem', e);
   }
 

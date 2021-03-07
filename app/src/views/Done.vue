@@ -1,7 +1,7 @@
 <template>
   <div class="done">
     <ToDoItemsList :filters="{ status: { in: ['DONE'] } }"
-    @list_deletedItem = "handleDeletedItem" />
+    @handleDeletedItem = "handleDeletedItem"/>
   </div>
 </template>
 

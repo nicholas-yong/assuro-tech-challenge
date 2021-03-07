@@ -43,7 +43,7 @@ export default
     },
     methods:
     {
-        returnSelection(e:Event)
+        returnSelection(e:any)
         {
             this.$emit("buttonSelected", e)
         }
@@ -52,12 +52,12 @@ export default
     {
         localDefaultPriority:
         {
-            get () 
+            get(): string 
             {
-                return this.defaultPriority
+                return this.defaultPriority;
             },
             
-            set()
+            set(): void
             {
                 //We don't need to do anything here.
             }
