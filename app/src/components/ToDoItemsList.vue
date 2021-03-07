@@ -51,7 +51,7 @@ export default class ToDoItemsList extends Vue {
         query: gql`
           query($filters: ToDoItemFilterInput) {
             toDoItems(
-              order: [{ priority: ASC }]
+              order: [{priority:ASC}, {createdDate:DESC}]
               where: $filters
             ) {
               nodes {

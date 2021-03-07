@@ -28,3 +28,6 @@ export default class Done extends Vue {
 }
 
 </script>
+
+<style lang="scss" scoped>
+</style>

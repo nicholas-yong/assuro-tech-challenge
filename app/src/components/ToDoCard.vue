@@ -2,8 +2,16 @@
   <div class="item-card">
     <div class="columns">
       <div class="column is-three-quarters has-text-left">
+        <div class = "icon-holder">
+          <vue-fontawesome
+          icon="circle"
+          size="1x"
+          v-bind:style="{color:priorityIconColor, visibility:displayPriorityIcon}"
+          class = "fs-priority-icon">
+          </vue-fontawesome>
+        </div>
         <BField class="checkbox-field">
-          <BCheckbox v-model="done" @input="toggleDone" class = "content-checkbox">{{
+            <BCheckbox v-model="done" @input="toggleDone" class = "content-checkbox">{{
             content
           }}</BCheckbox>
         </BField>
@@ -34,6 +42,30 @@ export default class ToDoCard extends Vue {
   get createdDate() {
     return this.item.createdDate;
   }
+
+  get priorityIconColor(){
+    switch(this.item.priority)
+    {
+      case "HIGH":
+       return "Red"
+      case "LOW":
+        return "Green"
+      default:
+        return "Black"
+    }
+  }
+
+  get displayPriorityIcon()
+  {
+    if( this.item.priority === "LOW" || this.item.priority === "HIGH" )
+    {
+      return "visible";
+    }
+    else
+    {
+      return "hidden";
+    }
+   }
 
   get createdDateDisplay() {
     return new Date(this.item.createdDate).toUTCString();
@@ -110,13 +142,38 @@ export default class ToDoCard extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+$medium: 900px;
+
+.has-text-left
+{
+  padding: 0px;
+  padding-bottom: 30px;
+}
 
 .checkbox-field 
 {
   line-height: 2.5rem;
+  margin-left: 2rem;
 }
 
-$medium: 900px;
+.icon-holder
+{
+  height: 0;
+}
+
+.fs-priority-icon
+{
+  margin-right: 1rem;
+  position: relative;
+  left: 0;
+  top: 3px;
+  @media screen and (max-width: $medium)
+  {
+    margin: 0;
+    position: relative;
+  }
+}
+
 
 button
 {
